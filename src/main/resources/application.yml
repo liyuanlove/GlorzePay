@@ -1,0 +1,56 @@
+server:
+  port: 80
+  servlet:
+    context-path: /
+    
+spring:
+   datasource:
+      driver-class-name: com.mysql.jdbc.Driver
+      url: jdbc:mysql://localhost:3306/glorze_pay
+      username: root
+      password: 123456
+   jpa:
+     hibernate.ddl-auto: update
+     show-sql: true
+      
+     
+#支付宝支付配置
+# appId 商户appId 
+# rsaPrivateKey 私钥 pkcs8格式的
+# notifyUrl 服务器异步通知页面地址,不能加参数
+# returnUrl 页面跳转同步通知页面地址,不能加参数
+# url 请求网关地址
+# charset 编码
+# format 返回格式
+# alipayPublicKey 支付宝公钥
+# signType RSA2
+
+ali-pay-config:
+   appId: 2018030202300852
+   rsaPrivateKey: MIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQCNnyVdEt53G6IsmH1OfJb3t4h6mzw4qLPakXjpw8fvVY9CPbXL+bt54P1rrrOy8mXQFKYO4B6floj6dU5ZruN0T3bsvl9XCAYJKl9jlq7TzGmhduJu02yeTzmOq6x50+FlW2t6fo2gWntZ5U307CA+NTurYX1+Oni9enUk5lQICR/Qbr8PzILOPIkJCVjRh91vVUyuG/042lUOTBb9+/wETAi6o38nJutZnOMdGLtggMc4IlaFAsyeT2R+GWz4gliX6naHkFQaIHvqFAJ55v96spyc8AHFL4MKNw4ZtGe6XbY0aihc/anL8eq+2H6ZXzOkCrUtPllfh7yd/wFjeOBnAgMBAAECggEAQF/c/ge7s+yNtTPDkc+0V/nHQeQaZa7Zwjpp+eiSk0oTCos+fe+Qtn/88dvBt0/T09fu+8gIY4Zr0V1NNhr3LUGJz2dhsw/knnnyTjSKV6ANS+XcW4AjWXqtsRp8Fgyn4gjCPDYWbpNyipRe8Tv8FAriiq6P+rbdd1OYuCMyg0vigxKw70BLs98vhuC0NN8ws5P9m5DJNkKsaTsfom9pCAG3qp2YADBOicboyurjAqDuFY3YFaLeBEMCoFOutHGqU7OgOb8pljCcGGgvU5pMd8OA75bDvLCwcSnRfXBkQf5Z/8bXZHVPxkxQPDxF+Q3Y0Gragkwtm5TuVuVec+uGoQKBgQDkRJ29kJNuSLFB5xW6dRJlqJS4E2ch6ksRkwRpReyYiFSDzq/vCkf6yAat/aXCFea9MZ21S04jOpYAwVA6+cwyWUHINL+S8L0Xl6VXm8enYww/hffJTaYIFOwDjp8Fe4c72DfQrC6lz1cydttcLzpPvraOkS43pMloaZWbEzflaQKBgQCe07vMC8R5u/wZLJI6Vixxr4Jweyo8reWSIUabBfoU0xBkPxLw6WSqUya18NLX5rqNANRumNg5ebb1ZxsvfA2ORAnxUt9M6h8N1BI8+dkm4rJwqANYqa9ZxXoKvR2nP3OIWWe3GgELe83utSf2a/esI5UyED22YbXW2Cv2OeTNTwKBgDUKLIzrlxY9FdL2WvokUc4FSekruP8Mbbz7qD693KfkpZ6q2/5zKR6Ac+zhzy414JN9f+OsR8+vwUMTqAzMFkJssvhOKWV/QrDEr8qXi+C9Bw+LlXPU8wtVsTFyZkjj1xx0tSNrnrswXlZ/f6D/6FC3Q7wEx/Rt+c6lGfoakRZhAoGARyX2ZIuI8jeB0Q0kXDmqIytKNXUXEKOdyX5akKt2wcli+GVA6ObEj4A8QRimes0DGJMcloalpemeSgRsKzNZJzfXdGF5Yo0maB1uJh6OZlr7MHgzN46b3I0YBKN/GyLTcGsMiPt/KFPHhn1kb4EiK9yswwZ/fqn6uUmRN/XrRwUCgYEAw8XWO2GHfHXTKy6klzUfH7za5COXRBNYE+PS8nCzvmto6yZoyDpJR8b+eks7bv7j37d3YVMCO2whk3tyPmUDQiQ3o0+FmGz9kgLezpU3hYmparsVS6iXpHqHUAi++vs0R1WbWAHkGxhJj+VFgrOAKSmmu5eukYD1vOnIE4GEcLA=
+   notifyUrl: http://pay.glorze.com/alipay/notifyUrl
+   returnUrl: http://pay.florze.com/alipay/returnUrl
+   url: https://openapi.alipay.com/gateway.do
+   charset: UTF-8
+   format: json
+   alipayPublicKey: MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAvIyQMziN4Ofb93PYXCRNTXvc6ZbibbYwrmWQk9HuxGbPGa6VIzE2IT3U70/kF9l6RiSb+/ODbM3bEcca+Lht9gblk7ZV9q+qhjsUuPPKw09u13CeV3FHklTEAyFEmlPQEPj9sFoyDrPXyWJnyU0+yPF/tw+lNk1B5+Q0Ps+qhzKk23vlPpK4zW4OThUdXRcUt0m1tfik76JBxq82UiUAaTn50GaKbKQcpy3kR1FtXOg1B2e0GVLlEOifYAUONkE6GSPOe19ecWKcsxTgctVrgcapbBJGfz4o1EpXNdYK/eJo3itR4FldU6M/PtItS1afpkRlo6gWccABrCjfDaAwhQIDAQAB
+   signType: RSA2
+   
+   
+#微信支付配置
+# appId 公众账号ID
+# mchId 商户号
+# deviceInfo 设备号
+# key 商户的key【API密匙】
+# url api请求地址
+# notifyUrl 服务器异步通知页面地址
+# returnUrl 服务器同步通知页面地址
+
+weixin-pay-config:
+   appId: wx5e97e532d120a6bf
+   mchId: 1500625891
+   deviceInfo: WEB
+   key: jrBXpyMVPNY0FCFI42EBShLom7KMaRBe
+   url: https://api.mch.weixin.qq.com/pay/unifiedorder
+   notifyUrl: http://pay.glorze.com/weixinpay/notifyUrl
+   returnUrl: http://pay.glorze.com/weixinpay/returnUrl
